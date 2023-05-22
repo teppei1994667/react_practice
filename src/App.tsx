@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Typography, Box, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
-import { Home } from "./components/Home";
-import { ReactHookForm } from "./components/ReactHookForm";
-import { AgGrid } from "./components/AgGrid";
+import { Home } from "./components/home/Home";
+import { ReactHookForm } from "./components/reactHookForm/ReactHookForm";
+import { AgGrid } from "./components/agGrid/AgGrid";
 
 const App = () => {
   const [drawerOpened, setDrawerOpened] = useState(false);

@@ -9,9 +9,14 @@ export const Home = () => {
     setCount((prev) => prev + 1);
   };
 
+	const countDown = () => {
+    setCount((prev) => prev - 1);
+  };
+
   const countReset = () => {
     setCount((prev) => (prev = 0));
   };
+	
 
 	useEffect(() => {
 		if (count % 2 === 0 && count !== 0) {
@@ -25,8 +30,11 @@ export const Home = () => {
     <>
       <Typography variant="subtitle1" sx={{ textAlign: "center"}}>これはuseStateを使って実装しました</Typography>
       <Box sx={{ textAlign: "center", marginTop: "20px" }}>
-        <Button variant="outlined" onClick={countUp}>
-          カウントアップ
+			<Button variant="outlined" onClick={countDown}>
+          ➖
+        </Button>
+        <Button variant="outlined" onClick={countUp} sx={{marginLeft: "10px"}}>
+          ➕
         </Button>
         <Button
           variant="outlined"

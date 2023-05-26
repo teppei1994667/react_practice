@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import { Typography, Button, Box } from "@mui/material";
+import { Typography, Button, Box, Grid } from "@mui/material";
 import { initialState, countReducer } from "./Reducer";
 
 //useStateで更新する
@@ -29,75 +29,99 @@ export const Home = () => {
 
   //useReducerで更新する
   const [state, dispatch] = useReducer(countReducer, initialState);
-	const [reducerColor, setReducerColor] = useState("black")
+  const [reducerColor, setReducerColor] = useState("black");
 
-	useEffect(() => {
-		if (state.reducerCount % 2 === 0 && state.reducerCount !== 0) {
-			setReducerColor((prev) => prev = "blue")
-		} else if (state.reducerCount % 2 === 1) {
-			setReducerColor((prev) => prev = "red")
-		} 
-	}, [state.reducerCount])
+  useEffect(() => {
+    if (state.reducerCount % 2 === 0 && state.reducerCount !== 0) {
+      setReducerColor((prev) => (prev = "blue"));
+    } else if (state.reducerCount % 2 === 1) {
+      setReducerColor((prev) => (prev = "red"));
+    }
+  }, [state.reducerCount]);
 
   return (
     <>
-      <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
-        これはuseStateを使って実装しました
-      </Typography>
-      <Box sx={{ textAlign: "center", marginTop: "20px" }}>
-        <Button variant="outlined" onClick={countDown}>
-          ➖
-        </Button>
-        <Button
-          variant="outlined"
-          onClick={countUp}
-          sx={{ marginLeft: "10px" }}
-        >
-          ➕
-        </Button>
-        <Button
-          variant="outlined"
-          sx={{ marginLeft: "10px" }}
-          onClick={countReset}
-        >
-          リセット
-        </Button>
-        <Typography variant="h6" sx={{ color: counterColor }}>
-          {count}
-        </Typography>
-      </Box>
-
-      <Typography
-        variant="subtitle1"
-        sx={{ textAlign: "center", marginTop: "50px" }}
+      <Grid container sx={{ justifyContent: "center" }}>
+        <Grid item>
+          <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
+            これはuseStateを使って実装しました
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        spacing={1}
+        sx={{ justifyContent: "center", marginTop: "10px" }}
       >
-        これはuseReducerを使って実装しました
-      </Typography>
-      <Box sx={{ textAlign: "center", marginTop: "20px" }}>
-        <Button
-          variant="outlined"
-          onClick={() => dispatch({ type: "decrement" })}
-        >
-          ➖
-        </Button>
-        <Button
-          variant="outlined"
-          onClick={() => dispatch({ type: "increment" })}
-          sx={{ marginLeft: "10px" }}
-        >
-          ➕
-        </Button>
-        <Button
-          variant="outlined"
-          sx={{ marginLeft: "10px" }}
-          onClick={() => dispatch({ type: "reset" })}
-        >
-          リセット
-        </Button>
-        <Typography variant="h6" sx={{color: reducerColor}}>
-          {state.reducerCount}
-        </Typography>
-      </Box>
+        <Grid item>
+          <Button variant="outlined" onClick={countDown}>
+            ➖
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button variant="outlined" onClick={countUp}>
+            ➕
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button variant="outlined" onClick={countReset}>
+            リセット
+          </Button>
+        </Grid>
+      </Grid>
+      <Grid container sx={{ justifyContent: "center", marginTop: "10px" }}>
+        <Grid item>
+          <Typography variant="h6" sx={{ color: counterColor }}>
+            {count}
+          </Typography>
+        </Grid>
+      </Grid>
+
+      <Grid container sx={{ justifyContent: "center", marginTop: "10px" }}>
+        <Grid item>
+          <Typography
+            variant="subtitle1"
+            sx={{ textAlign: "center", marginTop: "50px" }}
+          >
+            これはuseReducerを使って実装しました
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid container sx={{ justifyContent: "center", marginTop: "10px" }}>
+        <Grid item>
+          <Button
+            variant="outlined"
+            onClick={() => dispatch({ type: "decrement" })}
+          >
+            ➖
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            variant="outlined"
+            onClick={() => dispatch({ type: "increment" })}
+            sx={{ marginLeft: "10px" }}
+          >
+            ➕
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            variant="outlined"
+            sx={{ marginLeft: "10px" }}
+            onClick={() => dispatch({ type: "reset" })}
+          >
+            リセット
+          </Button>
+        </Grid>
+      </Grid>
+      <Grid container sx={{ justifyContent: "center", marginTop: "10px" }}>
+        <Grid item>
+          <Typography variant="h6" sx={{ color: reducerColor }}>
+            {state.reducerCount}
+          </Typography>
+        </Grid>
+      </Grid>
     </>
   );
 };

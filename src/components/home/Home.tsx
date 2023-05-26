@@ -29,6 +29,17 @@ export const Home = () => {
 
   //useReducerで更新する
   const [state, dispatch] = useReducer(countReducer, initialState);
+	const [reducerColor, setReducerColor] = useState("black")
+
+	useEffect(() => {
+		if (state.reducerCount % 2 === 0 && state.reducerCount !== 0) {
+			console.log("青", reducerColor)
+			setReducerColor((prev) => prev = "blue")
+		} else if (state.reducerCount % 2 === 1) {
+			console.log("赤", reducerColor)
+			setReducerColor((prev) => prev = "red")
+		} 
+	}, [state.reducerCount])
 
   return (
     <>
@@ -85,7 +96,7 @@ export const Home = () => {
         >
           リセット
         </Button>
-        <Typography variant="h6" >
+        <Typography variant="h6" sx={{color: reducerColor}}>
           {state.reducerCount}
         </Typography>
       </Box>

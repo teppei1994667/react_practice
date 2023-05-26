@@ -33,10 +33,8 @@ export const Home = () => {
 
 	useEffect(() => {
 		if (state.reducerCount % 2 === 0 && state.reducerCount !== 0) {
-			console.log("青", reducerColor)
 			setReducerColor((prev) => prev = "blue")
 		} else if (state.reducerCount % 2 === 1) {
-			console.log("赤", reducerColor)
 			setReducerColor((prev) => prev = "red")
 		} 
 	}, [state.reducerCount])

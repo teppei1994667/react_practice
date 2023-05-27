@@ -17,6 +17,7 @@ export const Home = () => {
 
   const countReset = () => {
     setCount((prev) => (prev = 0));
+    setCounterColor((prev) => (prev = "black"))
   };
 
   useEffect(() => {
@@ -32,7 +33,9 @@ export const Home = () => {
   const [reducerColor, setReducerColor] = useState("black");
 
   useEffect(() => {
-    if (state.reducerCount % 2 === 0 && state.reducerCount !== 0) {
+    if (state.reducerCount === 0){
+      setReducerColor((prev) => (prev = "black"));
+    } else if (state.reducerCount % 2 === 0) {
       setReducerColor((prev) => (prev = "blue"));
     } else if (state.reducerCount % 2 === 1) {
       setReducerColor((prev) => (prev = "red"));

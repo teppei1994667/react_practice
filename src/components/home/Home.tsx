@@ -74,7 +74,7 @@ export const Home = () => {
       </Grid>
       <Grid container sx={{ justifyContent: "center", marginTop: "10px" }}>
         <Grid item>
-          <Typography variant="h6" sx={{ color: counterColor }}>
+          <Typography variant="h6" sx={{ color: counterColor, fontSize: `${count}px` }}>
             {count}
           </Typography>
         </Grid>
@@ -120,7 +120,7 @@ export const Home = () => {
       </Grid>
       <Grid container sx={{ justifyContent: "center", marginTop: "10px" }}>
         <Grid item>
-          <Typography variant="h6" sx={{ color: reducerColor }}>
+          <Typography variant="h6" sx={{ color: reducerColor, fontSize: `${state.reducerCount}px` }}>
             {state.reducerCount}
           </Typography>
         </Grid>

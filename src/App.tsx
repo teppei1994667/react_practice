@@ -3,6 +3,7 @@ import { Typography, Box, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import { Home } from "./pages/home/Home";
+import { TypeScriptPractice } from "./pages/typeScript/TypeScriptPractice";
 import { ReactHookForm } from "./pages/reactHookForm/ReactHookForm";
 import { AgGrid } from "./pages/agGrid/AgGrid";
 
@@ -23,24 +24,30 @@ const App = () => {
         >
           <Box sx={{ textAlign: "center", width: "300px", height: "100%", background: '#fffaf0', paddingTop: "50px" }}>
             <Box sx={{ textAlign: "center" }}>
-              <Link to="/components/Home">Home</Link>
+              <Link to="/pages/Home">Home</Link>
             </Box>
             <Box sx={{ textAlign: "center" }}>
-              <Link to="/components/ReactHookForm">ReactHookForm</Link>
+              <Link to="/pages/TypeScriptPractice">TypeScriptPractice</Link>
             </Box>
             <Box sx={{ textAlign: "center" }}>
-              <Link to="/components/AgGrid">AgGrid</Link>
+              <Link to="/pages/ReactHookForm">ReactHookForm</Link>
+            </Box>
+            <Box sx={{ textAlign: "center" }}>
+              <Link to="/pages/AgGrid">AgGrid</Link>
             </Box>
           </Box>
         </Drawer>
         <Switch>
-          <Route path="/components/Home">
+          <Route path="/pages/Home">
             <Home />
           </Route>
-          <Route path="/components/ReactHookForm">
+          <Route path="/pages/TypeScriptPractice">
+            <TypeScriptPractice />
+          </Route>
+          <Route path="/pages/ReactHookForm">
             <ReactHookForm />
           </Route>
-          <Route path="/components/AgGrid">
+          <Route path="/pages/AgGrid">
             <AgGrid />
           </Route>
         </Switch>

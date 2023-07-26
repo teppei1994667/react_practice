@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
+import { PriceCellRenderer } from "./cellRenderer/PricecellRenderer";
 
 export type rowDataType = {
   日付: string;
@@ -29,15 +30,21 @@ export const AgGrid = () => {
   const columnDefs = useMemo(
     () => [
       { field: "日付", width: 300 },
-      { field: "売り上げ", width: 300 },
+      { field: "売り上げ", width: 300, cellRenderer: (params: any) => {
+        return <PriceCellRenderer value={params.value}/> }},
+
       { field: "人件費", width: 300 },
     ],
     []
   );
 
-  const defaultColDef = useMemo(() => ({
-    sortable: true,
-  }), []);
+  //全ての列に共通のプロパティを設定
+  const defaultColDef = useMemo(
+    () => ({
+      sortable: true,
+    }),
+    []
+  );
 
   return (
     <Box sx={{ width: "100%", height: "auto" }}>
